@@ -3,3 +3,8 @@
   border-radius: 1rem;
   padding: 1rem;
 }
+
+.Post .dark {
+  background-color: #333;
+  color: #fff;
+}
