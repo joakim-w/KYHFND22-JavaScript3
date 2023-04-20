@@ -39,3 +39,8 @@ form button {
   background-color: darkslategray;
   color: #fff;
 }
+
+.error {
+  color: firebrick;
+  font-size: .9rem;
+}

@@ -2,7 +2,14 @@ import { useRef } from 'react'
 
 const FormTwo = () => {
 
-  console.log('render')
+  // console.log('render')
+  // let render = 0
+  // const renderCounter = useRef(0)
+
+  // renderCounter.current = renderCounter.current + 1
+  // render++
+  // console.log('render: '+ render)
+  // console.log('renderCounter: '+ renderCounter.current)
 
   const firstNameRef = useRef()
   const lastNameRef = useRef()
@@ -33,7 +40,7 @@ const FormTwo = () => {
         name='firstName' 
         id='firstName' 
         className='form-control' 
-        ref={firstNameRef}/>
+        ref={firstNameRef} />
       </div>
       <div className="form-group">
         <label htmlFor="lastName">Last Name</label>
