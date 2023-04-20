@@ -21,6 +21,7 @@ const FormTwo = () => {
     lastNameRef.current.value = ''
     emailRef.current.value = ''
 
+    // firstNameRef.current.focus()
   }
 
   return (
