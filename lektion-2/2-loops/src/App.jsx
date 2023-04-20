@@ -26,7 +26,24 @@ const App = () => {
   .forEach() -> returnerar ingenting
   */
 
-  return (
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+
+  // if(isLoggedIn === true) {
+  //   // om det är sant
+  // }
+
+  // isLoggedIn === true  // condition
+  // && // om det är sant
+
+
+
+  
+
+
+  // if(isLoggedIn) return (
+    return (
     <div className='container'>
       {/* <Post post={posts[0]} />
       <Post post={posts[1]} />
@@ -34,18 +51,37 @@ const App = () => {
 
       {/* {
         posts.map((post, index) => {
-          return <Post post={post} />
+          if(isLoggedIn)
+            return <Post post={post} />
         })
       } */}
 
+      <button onClick={() => setIsLoggedIn(state => !state)}>{isLoggedIn ? 'Logout' : 'Login'}</button>
+
+      {/* {
+        isLoggedIn 
+        ? posts.map((post, index) => (
+          <Post post={post} key={post.id} />
+        ))
+        : <h1>not logged in</h1>
+        
+      } */}
+
       {
-        posts.map((post, index) => (
+        isLoggedIn && posts.map(post => (
           <Post post={post} key={post.id} />
         ))
       }
 
     </div>
   )
+
+
+  // return (
+  //   <div className='container'>
+  //     inte inloggad
+  //   </div>
+  // )
 }
 
 export default App
