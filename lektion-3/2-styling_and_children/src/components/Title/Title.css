@@ -1,0 +1,11 @@
+.Title-component {
+  margin: 2rem;
+}
+
+.Title-component .title {
+  margin-bottom: 1rem;
+  color: blueviolet;
+}
+.Title-component .subtitle {
+  color: #858585;
+}
