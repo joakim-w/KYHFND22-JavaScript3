@@ -138,3 +138,72 @@ body {
   text-decoration: line-through;
   color: #858585;
 }
+
+.ChangeItem {
+  flex: 1;
+}
+
+.ChangeItem input {
+  border: 0;
+  font-size: 1rem;
+  outline: none;
+}
+.btn-check {
+  font-size: 1rem;
+}
+.btn-check:hover {
+  color: #399d39;
+}
+
+
+.modal-bg {
+  position: fixed;
+  inset: 0;
+  background-color: #0000002e;
+}
+
+.modal {
+  background-color: #fff;
+  max-width: 75%;
+  margin: min(10vh, 5rem) auto;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 5px #00000053;
+  text-align: center;
+}
+.modal h2,
+.modal p{
+  margin-bottom: 1rem;
+}
+.modal-buttons {
+  border-top: 1px solid #e7e7e7;
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.y-btn,
+.n-btn {
+  background-color: #333;
+  color: #fff;
+  border: 0;
+  padding: .4em 1em;
+  border-radius: .7em;
+  cursor: pointer;
+  transition: background 150ms;
+}
+.y-btn {
+  background-color: hsl(120, 47%, 42%);
+}
+.y-btn:hover {
+  background-color: hsl(120, 47%, 30%);
+}
+.y-btn:active {
+  background-color: hsl(120, 47%, 20%);
+}
+.n-btn:hover {
+  background-color: #1d1d1d;
+}
+.n-btn:active {
+  background-color: #0f0f0f;
+}

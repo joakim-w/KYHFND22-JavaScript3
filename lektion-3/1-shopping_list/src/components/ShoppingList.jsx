@@ -1,13 +1,14 @@
 import React from 'react'
 import ListItem from './ListItem'
 
-const ShoppingList = () => {
+const ShoppingList = ({ listItems }) => {
   return (
     <div className='ShoppingList'>
-      <ListItem />
-      <ListItem />
-      <ListItem />
-
+      { 
+        listItems.map(item => (
+          <ListItem key={item.id} item={item} />
+        ))
+      }
     </div>
   )
 }
