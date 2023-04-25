@@ -19,3 +19,13 @@
 .modal p {
   padding-block: 1rem;
 }
+
+.modal .split {
+  display: flex;
+  gap: 1rem;
+}
+.modal .left,
+.modal .right {
+  flex: 1;
+  text-align: center;
+}

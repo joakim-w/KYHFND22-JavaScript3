@@ -2,13 +2,27 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './Modal.css'
 
-const Modal = ({ handleClose }) => {
+const Modal = ({ handleClose, children, sale }) => {
+
+  const styles = {
+    modal: {
+      border: '4px solid',
+      textAlign: 'center',
+      borderColor: sale ? 'red' : '#555'
+    },
+    button: {
+      backgroundColor: sale ? 'red' : '#555'
+    }
+  }
+
   return ReactDOM.createPortal((
     <div className='modal-bg'>
-      <div className="modal">
-        <h2>varning</h2>
-        <p>är du säker på att du vill ta bort?</p>
-        <button className='btn' onClick={handleClose}>Close</button>
+      <div className="modal" style={styles.modal}>
+        
+        { children }
+        <button className='btn' onClick={handleClose} style={{
+          backgroundColor: sale ? 'red' : '#555'
+        }}>Close</button>
       </div>
     </div>
   ), document.querySelector('#modals'))
