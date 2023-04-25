@@ -35,7 +35,7 @@ const AddItemForm = ({ addItem }) => {
     <form onSubmit={handleSubmit} className='AddItemForm'>
       <div className="form-group">
         <input type="text" name="product" value={formData.product} onChange={handleChange} />
-        <input type="number" name="quantity" value={formData.quantity} onChange={handleChange} />
+        <input type="number" min={1} name="quantity" value={formData.quantity} onChange={handleChange} />
       </div>
       <button>ADD</button>
     </form>
