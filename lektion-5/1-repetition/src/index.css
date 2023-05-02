@@ -45,3 +45,33 @@ html, body {
   background-color: var(--clr-primary);
   color: #fff !important;
 }
+
+.form-page {
+  margin-top: 3rem;
+  display: flex;
+  gap: 1rem;
+}
+.form-page > * {
+  flex: 1;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+.form-group label,
+.form-group input {
+  display: block;
+  width: 100%;
+}
+.form-group label {
+  margin-bottom: .4rem;
+}
+.form-group input {
+  padding: .4em;
+  border: 1px solid #a6a6a6;
+  font-size: 1rem;
+  border-radius: .5em;
+}
+.form-group input:focus {
+  outline-color: var(--clr-primary);
+}

@@ -1,8 +1,26 @@
 {
-  "posts": [
-
-  ],
+  "posts": [],
   "users": [
-    
+    {
+      "email": "joakim@domain.com",
+      "password": "$2a$10$38pqKJuV/il/HHhlWlGAX.AR7fhy59lD4OeynR9sa5BiCfweQbKX.",
+      "firstName": "Joakim",
+      "lastName": "Lindh",
+      "id": 1
+    },
+    {
+      "email": "hans@domain.com",
+      "password": "$2a$10$zipCQSf6W8j/D569c6NbseKwe0.AUvN/yAlBuKOBgk871nLJ6pnoW",
+      "firstName": "Hans",
+      "lastName": "Mattin-Lassei",
+      "id": 2
+    },
+    {
+      "email": "jeanette@domain.com",
+      "password": "$2a$10$heY4YYK9FqSXNolQQg7EO.5oMz2fsjTiJuV0FpAkDiCikOtUXx5eS",
+      "firstName": "Jeanette",
+      "lastName": "Wankowicz",
+      "id": 3
+    }
   ]
 }
