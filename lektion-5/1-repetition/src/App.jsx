@@ -12,13 +12,13 @@ const App = () => {
   const [user, setUser] = useState(null)
   return (
     <>
-      <Navbar user={user} />
+      <Navbar user={user} setUser={setUser} />
       <div className="container">
         <Routes>
-          <Route index element={<Home />} />
-          <Route path='login' element={<Login setUser={setUser} />} />
-          <Route path='register' element={<Register setUser={setUser} />} />
-          <Route path='add' element={<Create />} />
+          <Route index element={<Home user={user} />} />
+          <Route path='login' element={<Login user={user} setUser={setUser} />} />
+          <Route path='register' element={<Register user={user} setUser={setUser} />} />
+          <Route path='add' element={<Create user={user} />} />
         </Routes>
       </div>
     </>

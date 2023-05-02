@@ -21,6 +21,11 @@
       "firstName": "Jeanette",
       "lastName": "Wankowicz",
       "id": 3
+    },
+    {
+      "email": "joakim2@domain.com",
+      "password": "$2a$10$z1ZMwHZ7tKzkCdU8gDEeR.YC3PNieCCLC/V0mhg5yCEi8C9iyGMaO",
+      "id": 4
     }
   ]
 }

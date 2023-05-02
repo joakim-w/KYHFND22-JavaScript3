@@ -1,7 +1,17 @@
 import { useState } from 'react'
 import axios from 'axios'
+import { useNavigate, Navigate, useLocation } from 'react-router-dom'
 
-const Register = ({setUser}) => {
+
+const Register = ({setUser, user}) => {
+
+  if(user != null) {
+    return <Navigate to="/"/>
+  }
+
+  const navigate = useNavigate()
+  const { state } = useLocation()
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -21,10 +31,11 @@ const Register = ({setUser}) => {
   const handleSubmit = async e => {
     e.preventDefault()
 
-    const res = await axios.post('http://localhost:3000/users/register', formData)
+    const res = await axios.post('http://localhost:3000/register', formData)
     console.log(res)
     if(res.data){
       setUser(res.data)
+      navigate(state?.from || '/')
     }
   }
 
