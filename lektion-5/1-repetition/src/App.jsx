@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import axios from 'axios'
 
 import Home from './pages/Home'
 import Login from './pages/Login'
@@ -9,6 +10,18 @@ import Register from './pages/Register'
 import Navbar from './components/Navbar'
 
 const App = () => {
+
+  //försök till att hålla användaren inloggad -- vi kollar mer på det sen
+  // useEffect(() => {
+  //   const token = localStorage.getItem('token')
+  //   if(token) {
+  //     axios.get('http://localhost:3000/users')
+  //       .then(res => {
+  //         console.log(res)
+  //       })
+  //   }
+  // }, [])
+  
   const [user, setUser] = useState(null)
   return (
     <>

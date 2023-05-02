@@ -75,3 +75,10 @@ html, body {
 .form-group input:focus {
   outline-color: var(--clr-primary);
 }
+
+.create {
+  margin-top: 3rem;
+}
+.create h1 {
+  margin-bottom: 2rem;
+}

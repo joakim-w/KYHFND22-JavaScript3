@@ -35,6 +35,7 @@ const Register = ({setUser, user}) => {
     console.log(res)
     if(res.data){
       setUser(res.data)
+      localStorage.setItem('token', res.data.token)
       navigate(state?.from || '/')
     }
   }

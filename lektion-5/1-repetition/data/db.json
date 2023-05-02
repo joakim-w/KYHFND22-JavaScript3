@@ -1,5 +1,22 @@
 {
-  "posts": [],
+  "posts": [
+    {
+      "title": "Städa köket",
+      "completed": false,
+      "id": 1
+    },
+    {
+      "title": "test",
+      "completed": false,
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "title": "testar",
+      "completed": false,
+      "id": 3
+    }
+  ],
   "users": [
     {
       "email": "joakim@domain.com",
