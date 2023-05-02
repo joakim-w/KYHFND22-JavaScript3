@@ -1,17 +1,11 @@
 import { useEffect, useState } from 'react'
+import { useLoaderData } from 'react-router-dom'
 import ProductListItem from '../components/ProductListItem'
 import axios from 'axios'
 
 const Shop = () => {
 
-  const [products, setProducts] = useState([])
-
-  useEffect(() => {
-    axios.get('https://fakestoreapi.com/products')
-      .then(res => {
-        setProducts(res.data)
-      })
-  }, [])
+  const products = useLoaderData()
 
   return (
     <div className='shop'>
@@ -20,6 +14,14 @@ const Shop = () => {
       ))}
     </div>
   )
+}
+
+export const loader = async () => {
+  const res = await axios.get('https://fakestoreapi.com/products')
+  if(res.status !== 200) {
+    throw new Error('Could not fetch the data')
+  }
+  return res.data
 }
 
 export default Shop
