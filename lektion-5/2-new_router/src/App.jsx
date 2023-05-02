@@ -8,6 +8,8 @@ import NotFound from './pages/NotFound'
 import ProductDetails, { loader as DetailsLoader } from './pages/ProductDetails'
 import RootLayout from './layouts/RootLayout'
 import ShopLayout from './layouts/ShopLayout'
+import ShopError from './pages/ShopError'
+import Error from './pages/Error'
 
 const App = () => {
 
@@ -21,7 +23,7 @@ const App = () => {
 
   //        {/*  http:loclahost:5773/shop/  */}
   //       <Route path='shop' element={ <ShopLayout /> } >
-  //         <Route index element={<Shop />}/>
+  //         <Route index element={<Shop />} loader={shopLoader}/>
   //         <Route path=':id' element={<ProductDetails />}/>
   //       </Route>
 
@@ -34,6 +36,7 @@ const App = () => {
     {
       path: '/',
       element: <RootLayout />,
+      errorElement: <Error />,
       children: [
         {
           index: true,
@@ -46,6 +49,7 @@ const App = () => {
         {
           path: 'shop',
           element: <ShopLayout />,
+          errorElement: <ShopError />,
           children: [
             {
               index: true,

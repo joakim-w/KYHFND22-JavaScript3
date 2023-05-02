@@ -29,7 +29,8 @@ const ProductDetails = () => {
 export const loader = async ({params}) => {
 
   const res = await axios.get('https://fakestoreapi.com/products/' + params.id)
-  if(res.status !== 200) {
+  console.log(res)
+  if(!res.data) {
     throw new Error('Could not fetch the data')
   }
   return res.data
