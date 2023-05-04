@@ -29,7 +29,7 @@ const App = () => {
         {
           path: 'add',
           element: <Create />
-        },
+        }
       ]
     }
   ])
