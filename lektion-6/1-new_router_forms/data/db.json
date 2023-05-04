@@ -1,4 +1,43 @@
 {
-  "posts": [],
-  "users": []
+  "posts": [
+    {
+      "userId": 1,
+      "title": "jockes post",
+      "completed": false,
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "title": "jockes 2",
+      "completed": false,
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "title": "hej",
+      "completed": false,
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "title": "asdas",
+      "completed": false,
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "title": "hfgds",
+      "completed": false,
+      "id": 5
+    }
+  ],
+  "users": [
+    {
+      "email": "joakim@domain.com",
+      "password": "$2a$10$osjLZmpRMj3FJAznBokLlO2KtnbsLJ0GHXd1sHrilQHXV8QS.T/qe",
+      "firstName": "Joakim",
+      "lastName": "Lindh",
+      "id": 1
+    }
+  ]
 }

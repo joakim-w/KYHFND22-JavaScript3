@@ -82,3 +82,7 @@ html, body {
 .create h1 {
   margin-bottom: 2rem;
 }
+.error {
+  color: firebrick;
+  font-size: .9rem;
+}

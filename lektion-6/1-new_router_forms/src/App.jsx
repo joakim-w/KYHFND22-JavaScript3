@@ -2,9 +2,9 @@ import { useState } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import RootLayout from './layouts/RootLayout'
 import Home from './pages/Home'
-import Login from './pages/Login'
+import Login, {action as loginAction} from './pages/Login'
 import Register, { action as registerAction } from './pages/Register'
-import Create from './pages/Create'
+import Create, { action as createAction } from './pages/Create'
 import RootBoundrary from './boundarys/RootBoundrary'
 
 const App = () => {
@@ -22,16 +22,18 @@ const App = () => {
         },
         {
           path: 'login',
-          element: <Login />
+          element: <Login />,
+          action: loginAction(setUser)
         },
         {
           path: 'register',
           element: <Register />,
-          action: registerAction
+          action: registerAction(setUser)
         },
         {
           path: 'add',
-          element: <Create />
+          element: <Create />,
+          action: createAction(user)
         }
       ]
     }

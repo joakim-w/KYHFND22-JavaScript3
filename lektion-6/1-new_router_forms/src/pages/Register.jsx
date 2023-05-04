@@ -1,7 +1,11 @@
 
-import { Form } from 'react-router-dom'
+import { Form, useActionData } from 'react-router-dom'
+import { register } from '../helpers/apiService'
 
 const Register = () => {
+
+  const actionData = useActionData()
+
   return (
     <div className='form-page'>
       <h1>Register a new user</h1>
@@ -23,21 +27,21 @@ const Register = () => {
           <input type="password" name="password" id="password" />
         </div>
         <button className='btn btn-primary'>REGISTER</button>
+        {actionData && <p className='error'>{actionData.message}</p>}
       </Form>
     </div>
   )
 }
 
-export const action = async ({ request }) => {
+export const action = (setUser) => async ({ request }) => {
   const data = await request.formData()
-  const user = {
+  const userData = {
     firstName: data.get('firstName'),
     lastName: data.get('lastName'),
     email: data.get('email'),
     password: data.get('password')
   }
-  console.log(user)
-  return null
+  return register(userData, setUser)
 }
 
 export default Register
