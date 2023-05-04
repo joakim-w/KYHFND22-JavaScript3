@@ -3,8 +3,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import RootLayout from './layouts/RootLayout'
 import Home from './pages/Home'
 import Login from './pages/Login'
-import Register from './pages/Register'
+import Register, { action as registerAction } from './pages/Register'
 import Create from './pages/Create'
+import RootBoundrary from './boundarys/RootBoundrary'
 
 const App = () => {
 
@@ -13,6 +14,7 @@ const App = () => {
     {
       path: '/',
       element: <RootLayout user={user} setUser={setUser} />,
+      errorElement: <RootBoundrary />,
       children: [
         {
           index: true,
@@ -24,7 +26,8 @@ const App = () => {
         },
         {
           path: 'register',
-          element: <Register />
+          element: <Register />,
+          action: registerAction
         },
         {
           path: 'add',

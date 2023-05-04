@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Form } from 'react-router-dom'
 
 const Register = () => {
@@ -26,6 +26,18 @@ const Register = () => {
       </Form>
     </div>
   )
+}
+
+export const action = async ({ request }) => {
+  const data = await request.formData()
+  const user = {
+    firstName: data.get('firstName'),
+    lastName: data.get('lastName'),
+    email: data.get('email'),
+    password: data.get('password')
+  }
+  console.log(user)
+  return null
 }
 
 export default Register

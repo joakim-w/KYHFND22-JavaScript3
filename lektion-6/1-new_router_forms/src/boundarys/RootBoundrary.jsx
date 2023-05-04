@@ -22,7 +22,7 @@ const RootBoundrary = () => {
     }
   }
 
-  return <div>Something went wrong, {error.message }</div>;
+  return <div>Something went wrong, {error.message}</div>;
 
 }
 
