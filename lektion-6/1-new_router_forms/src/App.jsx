@@ -1,11 +1,12 @@
 import { useState } from 'react'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, redirect, RouterProvider } from 'react-router-dom'
 import RootLayout from './layouts/RootLayout'
-import Home from './pages/Home'
+import Home, { loader as homeLoader } from './pages/Home'
 import Login, {action as loginAction} from './pages/Login'
 import Register, { action as registerAction } from './pages/Register'
 import Create, { action as createAction } from './pages/Create'
 import RootBoundrary from './boundarys/RootBoundrary'
+import { action as testAction } from './pages/Test'
 
 const App = () => {
 
@@ -18,22 +19,39 @@ const App = () => {
       children: [
         {
           index: true,
-          element: <Home />
+          element: <Home user={user} />,
+          loader: homeLoader(user)
         },
         {
           path: 'login',
           element: <Login />,
-          action: loginAction(setUser)
+          action: loginAction(setUser),
+          loader: () => {
+            if(user) return redirect('/')
+            return null
+          }
         },
         {
           path: 'register',
           element: <Register />,
-          action: registerAction(setUser)
+          action: registerAction(setUser),
+          loader: () => {
+            if(user) return redirect('/')
+            return null
+          }
         },
         {
           path: 'add',
           element: <Create />,
-          action: createAction(user)
+          action: createAction(user),
+          loader: () => {
+            if(!user) return redirect('/login')
+            return null
+          }
+        },
+        {
+          path: 'test',
+          action: testAction
         }
       ]
     }

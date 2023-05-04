@@ -29,6 +29,18 @@
       "title": "hfgds",
       "completed": false,
       "id": 5
+    },
+    {
+      "userId": 2,
+      "title": "Hans Post 1",
+      "completed": false,
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "title": "test",
+      "completed": false,
+      "id": 7
     }
   ],
   "users": [
@@ -38,6 +50,13 @@
       "firstName": "Joakim",
       "lastName": "Lindh",
       "id": 1
+    },
+    {
+      "email": "hans@domain.com",
+      "password": "$2a$10$5ttT4JXO5rfUbpmwXff9bOSRSuj6UhKDLZucYwZgXhyrqJlkS4AzC",
+      "firstName": "Hans",
+      "lastName": "Mattin-Lassei",
+      "id": 2
     }
   ]
 }

@@ -1,6 +1,27 @@
 import { json, redirect } from "react-router-dom"
 import { sleep } from "./sleep"
 
+
+export const getPosts = async (userId) => {
+  await sleep(500)
+  const res = await fetch('http://localhost:3000/posts?userId=' + userId)
+  if(!res.ok) {
+    throw new Response('Failed to get the posts', { status: res.status })
+  }
+  const data = await res.json()
+  return data
+}
+
+export const getSlowPosts = async (userId) => {
+  await sleep(2000)
+  const res = await fetch('http://localhost:3000/posts?userId=' + userId)
+  if(!res.ok) {
+    throw new Response('Failed to get the posts', { status: res.status })
+  }
+  
+  return res.json()
+}
+
 export const createPost = async (post) => {
   await sleep(1000)
   try {
@@ -27,6 +48,7 @@ export const createPost = async (post) => {
 }
 
 export const login = async (userData, setUser) => {
+  await sleep(1000)
   try {
     
     const res = await fetch('http://localhost:3000/login', {
