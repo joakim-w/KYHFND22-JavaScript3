@@ -1,0 +1,16 @@
+.post {
+  box-shadow: 5px 5px 10px #00000055;
+  margin: 2rem 0;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.post a {
+  text-decoration: none;
+  color: #111;
+}
+
+.post h2 {
+  color: orange;
+  margin-bottom: 1rem;
+}

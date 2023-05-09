@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { loadPosts } from '../store/actions/postsAction'
+import Post from '../components/Post/Post'
 
 const Home = () => {
 
@@ -10,8 +11,16 @@ const Home = () => {
     dispatch(loadPosts())
   }, [])
 
+  const { posts, loading, error } = useSelector(state => state.posts)
+
   return (
-    <div>Home</div>
+    <div>
+      {loading && <p>Loading...</p>}
+      {error && <p>{ error }</p>}
+      {
+        posts.map(post => <Post key={post.id} post={post} />)
+      }
+    </div>
   )
 }
 

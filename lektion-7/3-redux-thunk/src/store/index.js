@@ -1,9 +1,11 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import postsReducer from './reducers/postsReducer'
 import thunk from 'redux-thunk'
+import postReducer from './reducers/postReducer'
 
 const rootReducer = combineReducers({
-  posts: postsReducer
+  posts: postsReducer,
+  post: postReducer
 })
 
 export const store = createStore(
