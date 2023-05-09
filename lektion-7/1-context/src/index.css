@@ -10,6 +10,9 @@ html, body {
   width: 80%;
   margin: 0 auto;
 }
+.bg {
+  min-height: calc(100vh - 53.14px);
+}
 .btn {
   padding: .4em 1.3em;
   border-radius: .4em;
@@ -44,7 +47,7 @@ html, body {
 }
 .form-control {
   font-size: 1rem;
-  outline-color: transparent;
+  outline: none;
   padding: .5rem;
 }
 input.form-control {

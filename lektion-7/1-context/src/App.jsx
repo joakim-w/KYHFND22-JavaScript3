@@ -2,46 +2,28 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Posts from './pages/Posts'
 import CreatePost from './pages/CreatePost'
 import Navbar from './components/Navbar/Navbar'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { ThemeContext } from './contexts/ThemeContext'
+import PostsContextProvider from './contexts/PostsContext'
 
 const App = () => {
 
-  const [posts, setPosts] = useState([
-    {
-      id: crypto.randomUUID(),
-      title: 'My First Post',
-      body: 'This is my first post evvah!'
-    },
-    {
-      id: crypto.randomUUID(),
-      title: 'My Second Post',
-      body: 'This is my second post'
-    },
-    {
-      id: crypto.randomUUID(),
-      title: 'My Third Post',
-      body: 'This is my third post'
-    },
-  ])
-
-  const addPost = (title, body) => {
-    const post = {
-      id: crypto.randomUUID(),
-      title,
-      body
-    }
-
-    setPosts(prevPosts => [...prevPosts, post])
-  }
+  const { theme } = useContext(ThemeContext)
 
   return (
     <BrowserRouter>
       <Navbar />
-      <div className="container">
-        <Routes>
-          <Route index element={<Posts posts={posts} />} />
-          <Route path='create' element={<CreatePost />} />
-        </Routes>
+      <div className='bg' style={{
+        background: theme.bg
+      }}>
+        <div className="container">
+          <PostsContextProvider>
+            <Routes>
+              <Route index element={<Posts />} />
+              <Route path='create' element={<CreatePost />} />
+            </Routes>
+          </PostsContextProvider>
+        </div>
       </div>
     </BrowserRouter>
   )

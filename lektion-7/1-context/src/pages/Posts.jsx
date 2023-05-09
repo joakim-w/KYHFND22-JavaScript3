@@ -1,7 +1,9 @@
-import React from 'react'
 import Post from '../components/Post/Post'
+import { usePostsContext } from '../hooks/usePostsContext'
 
-const Posts = ({ posts }) => {
+const Posts = () => {
+  const { posts } = usePostsContext()
+  
   return (
     <div className='posts' style={{ paddingTop: '2rem' }}>
       {
