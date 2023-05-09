@@ -1,0 +1,29 @@
+.navbar {
+  background-color: darkslategray;
+}
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+}
+.navbar .container,
+.navbar .nav-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  /* gap: 2rem; */
+}
+
+.navbar .nav-links a {
+  display: inline-block;
+  padding: 1rem;
+}
+.navbar .nav-links a:hover {
+  color: #c1c1c1;
+}
+.navbar .nav-links a.active {
+  text-decoration: underline;
+}

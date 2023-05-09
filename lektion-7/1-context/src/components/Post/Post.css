@@ -1,0 +1,10 @@
+.post {
+  box-shadow: 5px 5px 10px #00000045;
+  border-radius: .5rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+}
+.post h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
