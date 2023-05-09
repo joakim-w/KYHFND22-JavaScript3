@@ -12,13 +12,13 @@ const quantityReducer = (state = initState, action) => {
     case QUANTITY.increment:
       return {
         ...state,
-        value: state.value + 1
+        value: state.value + action.payload
       }
 
     case QUANTITY.decrement:
       return {
         ...state,
-        value: state.value - 1
+        value: state.value - action.payload
       }
 
     default:
