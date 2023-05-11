@@ -21,7 +21,11 @@ export const getPostById = createAsyncThunk('singlePost/getById', async (postId,
 export const singlePostSlice = createSlice({
   name: 'singlePost',
   initialState,
-  reducers: {},
+  reducers: {
+    clearPost: (state) => {
+      state.post = null
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getPostById.pending, (state) => {
@@ -40,5 +44,7 @@ export const singlePostSlice = createSlice({
   }
 })
 
+
+export const { clearPost } = singlePostSlice.actions
 
 export default singlePostSlice.reducer
