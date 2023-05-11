@@ -62,3 +62,11 @@ body {
   color: firebrick;
   font-size: .9rem;
 }
+
+.test {
+  display: none;
+}
+
+.form-control:invalid + .test {
+  display: block;
+}
