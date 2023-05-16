@@ -1,11 +1,18 @@
 import React from 'react'
 import { FaCartPlus } from 'react-icons/fa'
+import useDoc from '../hooks/useDoc'
+import { useParams } from 'react-router-dom'
+import Loader from '../components/Loader/Loader'
 
 const ProductDetails = () => {
 
+  const { id } = useParams()
+  const { data : product, error, loading } = useDoc('products', id)
+
   if(!product) return (
     <div>
-      hej
+      { loading && <Loader />}
+      { error && <p>{error}</p>}
     </div>
   )
 
