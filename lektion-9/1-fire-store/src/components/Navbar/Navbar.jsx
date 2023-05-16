@@ -1,32 +1,32 @@
+import { Link, NavLink } from 'react-router-dom'
 import './Navbar.scss'
+import { FaShoppingCart } from 'react-icons/fa'
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
-      <div className="container-fluid">
-        <a className="navbar-brand" href="#">Navbar</a>
+    <nav className="navbar navbar-dark navbar-expand-lg bg-primary" >
+      <div className="container">
+        <Link className="navbar-brand" to="/">Fire-Store</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul className="navbar-nav">
+          <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">Home</a>
+              <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
             </li>
+
             <li className="nav-item">
-              <a className="nav-link" href="#">Features</a>
+              <NavLink className="nav-link" aria-current="page" to="/add">Add</NavLink>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Pricing</a>
-            </li>
+            
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown link
-              </a>
-              <ul className="dropdown-menu">
-                <li><a className="dropdown-item" href="#">Action</a></li>
-                <li><a className="dropdown-item" href="#">Another action</a></li>
-                <li><a className="dropdown-item" href="#">Something else here</a></li>
+              <span className="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <FaShoppingCart />
+                <span className='position-absolut start-100 translate-middle badge rounded-pill bg-danger'>1</span>
+              </span>
+              <ul className="dropdown-menu dropdown-menu-end shopping-cart">
+                ShoppingCart
               </ul>
             </li>
           </ul>
