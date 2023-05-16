@@ -4,7 +4,7 @@ import { FaShoppingCart } from 'react-icons/fa'
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-dark navbar-expand-lg bg-primary" >
+    <nav className="navbar navbar-dark navbar-expand-sm bg-primary" >
       <div className="container">
         <Link className="navbar-brand" to="/">Fire-Store</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
