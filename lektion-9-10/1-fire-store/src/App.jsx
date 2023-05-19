@@ -6,6 +6,8 @@ import Home from './pages/Home'
 import Add from './pages/Add'
 import ProductDetails from './pages/ProductDetails'
 import Checkout from './pages/Checkout'
+import Register from './pages/Register'
+import Login from './pages/Login'
 
 const App = () => {
 
@@ -29,6 +31,14 @@ const App = () => {
         {
           path: 'checkout',
           element: <Checkout />
+        },
+        {
+          path: 'register',
+          element: <Register />
+        },
+        {
+          path: 'login',
+          element: <Login />
         },
       ]
     }
