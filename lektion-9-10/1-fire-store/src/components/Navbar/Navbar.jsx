@@ -2,11 +2,14 @@ import { Link, NavLink } from 'react-router-dom'
 import './Navbar.scss'
 import { FaShoppingCart } from 'react-icons/fa'
 import ShoppingCart from '../ShoppingCart/ShoppingCart'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { logoutUser } from '../../store/features/auth/authSlice'
 
 const Navbar = () => {
 
   const { totalQuantity } = useSelector(state => state.shoppingCart)
+  const { user } = useSelector(state => state.auth)
+  const dispatch = useDispatch()
 
   return (
     <nav className="navbar navbar-dark navbar-expand-sm bg-primary" >
@@ -21,9 +24,23 @@ const Navbar = () => {
               <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
             </li>
 
-            <li className="nav-item">
-              <NavLink className="nav-link" aria-current="page" to="/add">Add</NavLink>
-            </li>
+            {
+              user
+              ? <>
+                <li className="nav-item">
+                  <NavLink className="nav-link" aria-current="page" to="/add">Add</NavLink>
+                </li>
+                <li className="nav-item">
+                  <button className='nav-link' onClick={() => dispatch(logoutUser())} >Logout</button>
+                </li>
+
+              </>
+
+              : <li className="nav-item">
+                  <NavLink className="nav-link" aria-current="page" to="/login">Login</NavLink>
+                </li>
+            }
+            
             
             <li className="nav-item dropdown">
               <span className="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">

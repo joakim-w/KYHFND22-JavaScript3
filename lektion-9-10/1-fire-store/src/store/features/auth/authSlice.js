@@ -5,7 +5,8 @@ import authService from "./authService"
 const initialState = {
   user: null,
   loading: false,
-  error: null
+  error: null,
+  authIsReady: false
 }
 
 export const registerUser = createAsyncThunk('auth/register', async (formData, thunkAPI) => {
@@ -22,6 +23,20 @@ export const loginUser = createAsyncThunk('auth/login', async (formData, thunkAP
     return thunkAPI.rejectWithValue(err.message)
   }
 })
+export const logoutUser = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
+  try {
+    return await authService.logout()
+  } catch (err) {
+    return thunkAPI.rejectWithValue(err.message)
+  }
+})
+export const signInWithGoogle = createAsyncThunk('auth/google', async (_, thunkAPI) => {
+  try {
+    return await authService.signInWithGoogle()
+  } catch (err) {
+    return thunkAPI.rejectWithValue(err.message)
+  }
+})
 
 export const authSlice = createSlice({
   name: 'auth',
@@ -29,10 +44,15 @@ export const authSlice = createSlice({
   reducers: {
     setError: (state, action) => {
       state.error = action.payload
+    },
+    authReady: (state, action) => {
+      state.user = action.payload
+      state.authIsReady = true
     }
   },
   extraReducers: (builder) => {
     builder
+      //Register
       .addCase(registerUser.pending, state => {
         state.loading = true
       })
@@ -46,6 +66,7 @@ export const authSlice = createSlice({
         state.error = action.payload
       })
 
+      // Login
       .addCase(loginUser.pending, state => {
         state.loading = true
       })
@@ -58,9 +79,28 @@ export const authSlice = createSlice({
         state.loading = false
         state.error = action.payload
       })
+
+      //Logout
+      .addCase(logoutUser.fulfilled, state => {
+        state.user = null
+      })
+
+      // Google
+      .addCase(signInWithGoogle.pending, state => {
+        state.loading = true
+      })
+      .addCase(signInWithGoogle.fulfilled, (state, action) => {
+        state.user = action.payload
+        state.loading = false
+        state.error = null
+      })
+      .addCase(signInWithGoogle.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.payload
+      })
   }
 })
 
-export const { setError } = authSlice.actions
+export const { setError, authReady } = authSlice.actions
 
 export default authSlice.reducer

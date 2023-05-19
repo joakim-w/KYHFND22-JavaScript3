@@ -1,12 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addProduct } from '../store/features/products/productListSlice'
-import { Navigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 const Add = () => {
 
   const { user } = useSelector(state => state.auth)
 
-  if(!user) return <Navigate to="/login" replace />
+  const { error } = useSelector(state => state.productList)
+
+  const navigate = useNavigate()
+  
+  // useEffect(() => {
+  //   if(!user)
+  //     navigate('/login')
+  // }, [user])
 
   const dispatch = useDispatch()
   const [productData, setProductData] = useState({
@@ -56,6 +63,7 @@ const Add = () => {
           <label htmlFor="description" className="form-label">Product Description:</label>
           <textarea className='form-control' id="description" rows="3" value={productData.description} onChange={handleChange}></textarea>
         </div>
+        { error && <p className='text-danger'>{ error }</p>}
         <button className="btn btn-primary">Add Product</button>
       </form>
     </div>

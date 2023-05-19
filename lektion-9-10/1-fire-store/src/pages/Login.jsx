@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { loginUser } from '../store/features/auth/authSlice'
+import SignInGoogle from '../components/SignInGoogle'
 
 const Login = () => {
 
@@ -48,7 +49,8 @@ const Login = () => {
         { loading && <p>Loading...</p> }
         { error && <p className='text-danger'>{ error }</p> }
         <button className='btn btn-primary'>Login</button>
-        <button type='button' className='btn btn-success ms-5' >Log in with Google</button>
+        {/* <button type='button' className='btn btn-success ms-5' >Log in with Google</button> */}
+        <SignInGoogle setSubmitted={setSubmitted} />
       </form>
     </div>
   )

@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { registerUser, setError } from '../store/features/auth/authSlice'
+import SignInGoogle from '../components/SignInGoogle'
 
 const Register = () => {
 
   const { user, loading, error } = useSelector(state => state.auth)
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const [submitted, setSubmitted] = useState(false)
   const [formData, setFormData] = useState({
@@ -56,7 +58,8 @@ const Register = () => {
         { loading && <p>Loading...</p> }
         { error && <p className='text-danger'>{ error }</p> }
         <button className='btn btn-primary'>Register</button>
-        <button type='button' className='btn btn-success ms-5' >Log in with Google</button>
+        {/* <button type='button' className='btn btn-success ms-5' >Log in with Google</button> */}
+        <SignInGoogle setSubmitted={setSubmitted} />
       </form>
     </div>
   )
