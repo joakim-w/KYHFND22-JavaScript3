@@ -2,8 +2,12 @@ import { Link, NavLink } from 'react-router-dom'
 import './Navbar.scss'
 import { FaShoppingCart } from 'react-icons/fa'
 import ShoppingCart from '../ShoppingCart/ShoppingCart'
+import { useSelector } from 'react-redux'
 
 const Navbar = () => {
+
+  const { totalQuantity } = useSelector(state => state.shoppingCart)
+
   return (
     <nav className="navbar navbar-dark navbar-expand-sm bg-primary" >
       <div className="container">
@@ -24,7 +28,10 @@ const Navbar = () => {
             <li className="nav-item dropdown">
               <span className="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <FaShoppingCart />
-                <span className='position-absolut start-100 translate-middle badge rounded-pill bg-danger'>1</span>
+                {
+                  totalQuantity > 0 &&
+                  <span className='position-absolut start-100 translate-middle badge rounded-pill bg-danger'>{ totalQuantity }</span>
+                }
               </span>
               <ul className="dropdown-menu dropdown-menu-end shopping-cart">
                 <ShoppingCart />

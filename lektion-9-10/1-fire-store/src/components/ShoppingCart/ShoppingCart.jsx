@@ -1,10 +1,13 @@
 import React from 'react'
 import CartProduct from './CartProduct'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { clearCart } from '../../store/features/shoppingCart/shoppingCartSlice'
+import { Link } from 'react-router-dom'
 
-const ShoppingCart = () => {
+const ShoppingCart = ({ checkout }) => {
 
-  const { cart } = useSelector(state => state.shoppingCart)
+  const { cart, totalAmount } = useSelector(state => state.shoppingCart)
+  const dispatch = useDispatch()
 
   return (
     <div onClick={e => e.stopPropagation()}>
@@ -17,12 +20,21 @@ const ShoppingCart = () => {
       <div className="dropdown-divider"></div>
       <div className='d-flex justify-content-between align-items-center p-2'>
         <div>
-          <p className='m-0'>Total Price: 1000</p>
+          <p className='m-0'>Total Price: { totalAmount }</p>
           <small className='text-muted'>inkl. vat</small>
         </div>
         <div>
-          <button className='btn btn-warning'>Clear Cart</button>
-          <button className='btn btn-info ms-2'>Checkout</button>
+          {!checkout &&
+            <>
+              <button className='btn btn-warning' onClick={() => dispatch(clearCart())} >Clear Cart</button>
+              <Link to="checkout" className='btn btn-info ms-2'>Checkout</Link>
+            </>
+          }
+          {/* { checkout &&
+            <>
+              <button className='btn btn-success'>Place Order</button>
+            </>
+          } */}
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ import RootLayout from './layouts/RootLayout'
 import Home from './pages/Home'
 import Add from './pages/Add'
 import ProductDetails from './pages/ProductDetails'
+import Checkout from './pages/Checkout'
 
 const App = () => {
 
@@ -24,7 +25,11 @@ const App = () => {
         {
           path: 'products/:id',
           element: <ProductDetails />
-        }
+        },
+        {
+          path: 'checkout',
+          element: <Checkout />
+        },
       ]
     }
   ])
