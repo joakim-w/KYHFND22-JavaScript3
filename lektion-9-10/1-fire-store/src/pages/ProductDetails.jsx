@@ -3,11 +3,15 @@ import { FaCartPlus } from 'react-icons/fa'
 import useDoc from '../hooks/useDoc'
 import { useParams } from 'react-router-dom'
 import Loader from '../components/Loader/Loader'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../store/features/shoppingCart/shoppingCartSlice'
 
 const ProductDetails = () => {
 
   const { id } = useParams()
   const { data : product, error, loading } = useDoc('products', id)
+
+  const dispatch = useDispatch()
 
   if(!product) return (
     <div>
@@ -32,7 +36,7 @@ const ProductDetails = () => {
 
             <div className="mt-5 text-lg-end">
               <p className="h3">{product.price}</p>
-              <button className="btn btn-info"><FaCartPlus /> Add To Cart</button>
+              <button className="btn btn-info" onClick={() => dispatch(addToCart(product))}><FaCartPlus /> Add To Cart</button>
             </div>
           </div>
         </div>

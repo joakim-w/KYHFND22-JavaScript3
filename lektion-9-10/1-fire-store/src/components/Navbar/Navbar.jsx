@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router-dom'
 import './Navbar.scss'
 import { FaShoppingCart } from 'react-icons/fa'
+import ShoppingCart from '../ShoppingCart/ShoppingCart'
 
 const Navbar = () => {
   return (
@@ -26,7 +27,7 @@ const Navbar = () => {
                 <span className='position-absolut start-100 translate-middle badge rounded-pill bg-danger'>1</span>
               </span>
               <ul className="dropdown-menu dropdown-menu-end shopping-cart">
-                ShoppingCart
+                <ShoppingCart />
               </ul>
             </li>
           </ul>
