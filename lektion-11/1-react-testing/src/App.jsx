@@ -2,6 +2,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import './App.scss'
 import RootLayout from './layouts/RootLayout'
 import Home from './pages/Home/Home'
+import TodosContextProvider from './contexts/TodosContext'
 
 const App = () => {
 
@@ -20,7 +21,9 @@ const App = () => {
 
 
   return (
-    <RouterProvider router={router} />
+    <TodosContextProvider>
+      <RouterProvider router={router} />
+    </TodosContextProvider>
   )
 }
 

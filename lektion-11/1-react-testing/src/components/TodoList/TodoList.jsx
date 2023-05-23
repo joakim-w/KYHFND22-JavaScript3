@@ -2,22 +2,27 @@ import { useState } from 'react'
 import TodosLeft from '../TodosLeft/TodosLeft'
 import './TodoList.scss'
 import { FaChevronLeft } from 'react-icons/fa'
+import { useTodosContext } from '../../hooks/useTodosContext'
 
 const TodoList = () => {
 
   const [show, setShow] = useState(false)
 
+  const { todos, deleteTodo } = useTodosContext()
+
   return (
     <div className='todo-list card'>
       <div className="top">
-        <TodosLeft amount={2} />
+        <TodosLeft amount={todos.length} />
         <FaChevronLeft className={`chevron ${show ? 'rotate' : ''}`} onClick={() => setShow(prev => !prev)} />
       </div>
       <div className={`expandable-list ${show ? 'expand' : ''}`}>
         <div className="expandable-content">
-          <p className='todo-item'>hej</p>
-          <p className='todo-item'>hej</p>
-          <p className='todo-item'>hej</p>
+          {
+            todos.map(todo => (
+              <p key={todo.id} onClick={() => deleteTodo(todo.id)} className='todo-item'>{todo.title}</p>
+            ))
+          }
         </div>
       </div>
     </div>
