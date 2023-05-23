@@ -1,0 +1,25 @@
+.add-todo-form {
+  margin-top: 2rem;
+
+  .group {
+    display: flex;
+    gap: 2rem;
+
+
+    input, button {
+      display: block;
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: .5em;
+      padding: .5em;
+    }
+    input {
+      flex: 4;
+    }
+    button {
+      cursor: pointer;
+      flex: 1;
+    }
+  }
+
+}
