@@ -6,16 +6,7 @@ export const TodosContext = createContext();
 
 const TodosContextProvider = ({children}) => {
 
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      title: 'Todo item 1'
-    },
-    {
-      id: 2,
-      title: 'Todo item 2'
-    },
-  ])
+  const [todos, setTodos] = useState([])
 
   const addTodo = (title) => {
     const todo = {

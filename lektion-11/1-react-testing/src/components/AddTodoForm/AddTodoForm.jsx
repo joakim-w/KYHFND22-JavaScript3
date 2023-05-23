@@ -17,7 +17,7 @@ const AddTodoForm = () => {
   return (
     <form name='add-todo-form' onSubmit={handleSubmit} className='add-todo-form card'>
       <div className="group">
-        <input type="text" value={title} onChange={e => setTitle(e.target.value)} />
+        <input type="text" aria-label='todo-title' name='todo-title' value={title} onChange={e => setTitle(e.target.value)} />
         <button>ADD</button>
       </div>
     </form>

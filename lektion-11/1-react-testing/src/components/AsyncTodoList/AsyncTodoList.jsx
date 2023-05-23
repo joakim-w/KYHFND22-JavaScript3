@@ -1,14 +1,22 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import TodosLeft from '../TodosLeft/TodosLeft'
-import './TodoList.scss'
 import { FaChevronLeft } from 'react-icons/fa'
 import { useTodosContext } from '../../hooks/useTodosContext'
 
-const TodoList = () => {
+const AsyncTodoList = () => {
 
   const [show, setShow] = useState(false)
 
-  const { todos, deleteTodo } = useTodosContext()
+  const [todos, setTodos] = useState([])
+
+  useEffect(() => {
+    const getTodosAsync = async () => {
+      const res = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
+      const data = await res.json()
+      setTodos(data)
+    }
+    getTodosAsync()
+  }, [])
 
   return (
     <div className='todo-list card'>
@@ -20,7 +28,7 @@ const TodoList = () => {
         <div className="expandable-content">
           {
             todos.map(todo => (
-              <p data-testid="todo-element" key={todo.id} onClick={() => deleteTodo(todo.id)} className='todo-item'>{todo.title}</p>
+              <p data-testid="async-todo" key={todo.id} onClick={() => deleteTodo(todo.id)} className='todo-item'>{todo.title}</p>
             ))
           }
         </div>
@@ -29,4 +37,4 @@ const TodoList = () => {
   )
 }
 
-export default TodoList
+export default AsyncTodoList
