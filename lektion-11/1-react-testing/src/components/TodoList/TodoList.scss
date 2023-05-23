@@ -22,12 +22,12 @@
     display: grid;
     grid-template-rows: 0fr;
     
-    opacity: 0;
+    // opacity: 0;
 
     &.expand {
       grid-template-rows: 1fr;
       margin-top: 1rem;
-      opacity: 1;
+      // opacity: 1;
     }
 
     .expandable-content {

@@ -14,9 +14,9 @@ const TodoList = () => {
     <div className='todo-list card'>
       <div className="top">
         <TodosLeft amount={todos.length} />
-        <FaChevronLeft className={`chevron ${show ? 'rotate' : ''}`} onClick={() => setShow(prev => !prev)} />
+        <FaChevronLeft data-testid="chevron" className={`chevron ${show ? 'rotate' : ''}`} onClick={() => setShow(prev => !prev)} />
       </div>
-      <div className={`expandable-list ${show ? 'expand' : ''}`}>
+      <div data-testid="expandable-list" style={{ opacity: show ? 1 : 0 }} className={`expandable-list ${show ? 'expand' : ''}`}>
         <div className="expandable-content">
           {
             todos.map(todo => (
