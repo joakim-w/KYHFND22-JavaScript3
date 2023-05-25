@@ -2,17 +2,23 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import RootLayout from './layouts/RootLayout'
 import Home from './pages/Home'
 import './App.css'
+import Auth0ProviderWithHistory from './auth/Auth0ProviderWithHistory'
 
 const App = () => {
 
   const router = createBrowserRouter([
     {
-      path: '/',
-      element: <RootLayout />,
+      element: <Auth0ProviderWithHistory />,
       children: [
         {
-          index: true,
-          element: <Home />
+          path: '/',
+          element: <RootLayout />,
+          children: [
+            {
+              index: true,
+              element: <Home />
+            }
+          ]
         }
       ]
     }
