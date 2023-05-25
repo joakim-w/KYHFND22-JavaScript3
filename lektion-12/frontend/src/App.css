@@ -1,0 +1,33 @@
+:root {
+  --clr-primary: rgb(111, 33, 127);
+}
+.container {
+  padding: 0 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 85%;
+}
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.brand {
+  font-size: 3rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--clr-primary);
+}
+.nav-links {
+  list-style: none;
+}
+.nav-link {
+  text-decoration: none;
+  border: 0;
+  background-color: transparent;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111;
+  cursor: pointer;
+}
