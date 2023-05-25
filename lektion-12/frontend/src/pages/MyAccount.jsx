@@ -1,4 +1,4 @@
-import { useAuth0 } from '@auth0/auth0-react';
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 import React from 'react'
 
 const MyAccount = () => {
@@ -19,4 +19,7 @@ const MyAccount = () => {
   );
 }
 
-export default MyAccount
+// export default MyAccount
+export default withAuthenticationRequired(MyAccount, {
+  onRedirecting: () => <p>Loading...</p>
+})

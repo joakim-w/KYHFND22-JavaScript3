@@ -31,3 +31,43 @@
   color: #111;
   cursor: pointer;
 }
+
+#q-wrapper .ql-toolbar.ql-snow {
+  background-color: #dedede;
+  border-radius: .4rem .4rem 0 0;
+  
+}
+#q-wrapper .ql-container.ql-snow {
+  border-radius: 0 0 .4rem .4rem;
+  height: 450px;
+  overflow: auto;
+}
+
+.create-form {
+  margin-top: 1rem;
+}
+
+.form-group {
+  margin-bottom: .8rem;
+}
+label, input {
+  width: 100%;
+  display: block;
+}
+input {
+  padding: .4em;
+  border: 1px solid #777;
+  border-radius: .4em;
+}
+.error {
+  font-size: .9rem;
+  color: firebrick;
+}
+.btn {
+  padding: .5em 3em;
+  border-radius: .5em;
+  border: 0;
+  background-color: var(--clr-primary);
+  color: #fff;
+  cursor: pointer;
+}
