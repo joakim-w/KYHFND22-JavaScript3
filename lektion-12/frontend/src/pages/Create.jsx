@@ -4,7 +4,7 @@ import 'quill/dist/quill.snow.css'
 
 const Create = () => {
 
-  const [error, setError] = useState('test')
+  const [error, setError] = useState(false)
   const [quill, setQuill] = useState()
   const [title, setTitle] = useState('')
 
