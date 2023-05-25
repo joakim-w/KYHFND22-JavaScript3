@@ -41,12 +41,19 @@ const Create = () => {
     }
 
     try {
+
+      const token = localStorage.getItem('accessToken')
+
+      if(!token) {
+        throw new Error('you need to be logged in to create a post')
+      }
       
       const res = await fetch('http://localhost:8080/api/posts', {
         method: 'POST',
         body: JSON.stringify(post),
         headers: {
-          'content-type': 'application/json'
+          'content-type': 'application/json',
+          authorization: `Bearer ${token}`
         }
       })
 

@@ -72,3 +72,14 @@ input {
   cursor: pointer;
   margin-top: 1rem;
 }
+
+
+.post {
+  box-shadow: 3px 3px 9px #00000055;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.post .headline {
+  margin-bottom: 1rem;
+}

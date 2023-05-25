@@ -12,13 +12,17 @@ const Auth0ProviderWithHistory = () => {
     navigate(appState?.returnTo || window.location.pathname)
   }
 
+  const audience = import.meta.env.VITE_AUTH0_AUDIENCE
+
+  console.log(audience)
   return (
     <Auth0Provider
       domain={import.meta.env.VITE_AUTH0_DOMAIN}
       clientId={import.meta.env.VITE_AUTH0_CLIENT_ID}
       onRedirectCallback={onRedirectCallback}
       authorizationParams={{
-        redirect_uri: window.location.origin
+        redirect_uri: window.location.origin,
+        audience
       }}
   >
     <Outlet />

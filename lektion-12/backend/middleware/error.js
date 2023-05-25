@@ -3,12 +3,11 @@ const errorHandler = (err, req, res, next) => {
 
   let msg = {}
   if(err.errors) {
-    for(error in err.errors) {
+    for(let error in err.errors) {
       msg[error] = err.errors[error].properties.message
     }
   }
-  
-    err.message
+    msg = err.message
 
 
   res.status(statusCode).json({

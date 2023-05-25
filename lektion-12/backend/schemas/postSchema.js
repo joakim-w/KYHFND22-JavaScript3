@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose;
 
 const postSchema = new Schema({
-  title:      { type: String, required: [true, 'you need to enter a title']},
+  title:      { type: String },
   postHTML:   { type: String }
 }, { timestamps: true })
 
