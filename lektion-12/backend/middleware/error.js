@@ -1,16 +1,15 @@
 const errorHandler = (err, req, res, next) => {
   const statusCode = res.statusCode ? res.statusCode : 500
 
-  let msg = {
-    title
-  }
+  let msg = {}
   if(err.errors) {
     for(error in err.errors) {
       msg[error] = err.errors[error].properties.message
     }
-  } else {
-    err.message
   }
+  
+    err.message
+
 
   res.status(statusCode).json({
     message: msg,

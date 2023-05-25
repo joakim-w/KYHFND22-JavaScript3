@@ -8,4 +8,6 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use(errorHandler)
 
+app.use('/api/posts', require('./controllers/postsController'))
+
 module.exports = app
